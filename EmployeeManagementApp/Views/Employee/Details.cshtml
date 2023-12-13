@@ -86,7 +86,7 @@
                         @(job.StartDate.ToString("yyyy-MM-dd"))
                     </td>
                     <td>
-                        @(job.EndDate.HasValue ? job.EndDate.Value.ToString("yyyy-MM-dd") : "")
+                        @(job.EndDate.HasValue ? job.EndDate.Value.ToString("yyyy-MM-dd") : "-")
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => job.Salary)

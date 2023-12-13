@@ -21,6 +21,7 @@ namespace EmployeeManagementApp.Controllers
         // GET: Jobposition
         public async Task<IActionResult> Index()
         {
+            ModelState.Clear();
             var applicationDbContext = _context.JobPositions.Include(j => j.Employee);
             return View(await applicationDbContext.ToListAsync());
         }
@@ -51,6 +52,13 @@ namespace EmployeeManagementApp.Controllers
             return View();
         }
 
+
+        // Custom validation method
+        private bool EmployeeHasActiveJob(int employeeId)
+        {
+            return _context.JobPositions.Any(j => j.EmployeeId == employeeId && j.IsActive);
+        }
+
         // POST: Jobposition/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -60,6 +68,14 @@ namespace EmployeeManagementApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Custom validation: Check if the employee already has an active job position
+                if (EmployeeHasActiveJob(jobpositionModel.EmployeeId) && jobpositionModel.IsActive)
+                {
+                    ViewData["EmployeeId"] = jobpositionModel.EmployeeId;
+                    ModelState.AddModelError("IsActive", "Employee already has an active job position.");
+                    return View(jobpositionModel);
+                }
+
                 _context.Add(jobpositionModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Details", "Employee", new { id = jobpositionModel.EmployeeId });
@@ -82,6 +98,7 @@ namespace EmployeeManagementApp.Controllers
             {
                 return NotFound();
             }
+
             var employeeModel = await _context.Employees
                 .Include(e => e.JobPositions)
                 .FirstOrDefaultAsync(m => m.Id == jobpositionModel.EmployeeId);
@@ -100,6 +117,13 @@ namespace EmployeeManagementApp.Controllers
             if (id != jobpositionModel.Id)
             {
                 return NotFound();
+            }
+
+            if (EmployeeHasActiveJob(jobpositionModel.EmployeeId) && jobpositionModel.IsActive)
+            {
+                ViewData["EmployeeId"] = jobpositionModel.EmployeeId;
+                ModelState.AddModelError("IsActive", "Employee already has an active job position.");
+                return View(jobpositionModel);
             }
 
             if (ModelState.IsValid)
