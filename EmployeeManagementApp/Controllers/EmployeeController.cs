@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EmployeeManagement.Models;
 using EmployeeManagementApp.Data;
 using EmployeeManagement.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeManagementApp.Controllers
 {
@@ -75,6 +76,7 @@ namespace EmployeeManagementApp.Controllers
             {
                 _context.Add(employeeModel);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Employee Created Successfully.";
                 return RedirectToAction(nameof(Index));
             }
             return View(employeeModel);
@@ -128,6 +130,7 @@ namespace EmployeeManagementApp.Controllers
                         throw;
                     }
                 }
+                TempData["SuccessMessage"] = "Employee Edited Successfully.";
                 return RedirectToAction(nameof(Index));
             }
             return View(employeeModel);
@@ -160,6 +163,7 @@ namespace EmployeeManagementApp.Controllers
             var employeeModel = await _context.Employees.FindAsync(id);
             _context.Employees.Remove(employeeModel);
             await _context.SaveChangesAsync();
+            TempData["SuccessMessage"] = "Employee Deleted Successfully.";
             return RedirectToAction(nameof(Index));
         }
 

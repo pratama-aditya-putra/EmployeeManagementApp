@@ -111,3 +111,17 @@
     <a asp-action="Edit" asp-route-id="@Model.Employee.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+<script>
+$(document).ready(function () {
+    console.log('Document ready!');
+
+    // Check if there is a success message in TempData
+    var successMessage = '@TempData["SuccessMessage"]';
+    console.log('Success message:', successMessage);
+    console.log('Success message:', '@TempData["SuccessMessage"]');
+    if (successMessage) {
+        alert(successMessage);
+    }
+});
+</script>

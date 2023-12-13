@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EmployeeManagement.Models;
 using EmployeeManagementApp.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeManagementApp.Controllers
 {
@@ -78,6 +79,7 @@ namespace EmployeeManagementApp.Controllers
 
                 _context.Add(jobpositionModel);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Job Position Created Successfully.";
                 return RedirectToAction("Details", "Employee", new { id = jobpositionModel.EmployeeId });
                 //return RedirectToAction(nameof(Index));
             }
@@ -144,6 +146,7 @@ namespace EmployeeManagementApp.Controllers
                         throw;
                     }
                 }
+                TempData["SuccessMessage"] = "Job Position Edited Successfully.";
                 return RedirectToAction("Details", "Employee", new { id = jobpositionModel.EmployeeId });
             }
             ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Id", jobpositionModel.EmployeeId);
@@ -177,6 +180,7 @@ namespace EmployeeManagementApp.Controllers
             var jobpositionModel = await _context.JobPositions.FindAsync(id);
             _context.JobPositions.Remove(jobpositionModel);
             await _context.SaveChangesAsync();
+            TempData["SuccessMessage"] = "Job Position Deleted Successfully.";
             return RedirectToAction("Details", "Employee", new { id = jobpositionModel.EmployeeId });
         }
 

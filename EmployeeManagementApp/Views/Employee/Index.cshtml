@@ -64,3 +64,14 @@
         }
     </tbody>
 </table>
+
+
+<script>
+        $(document).ready(function () {
+            // Check if there is a success message in TempData
+            var successMessage = '@TempData["SuccessMessage"]';
+            if (successMessage) {
+                alert(successMessage);
+            }
+        });
+</script>
