@@ -157,8 +157,8 @@ C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\bin\D
 C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\EmployeeModel\Create.cshtml.g.cs
-C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\EmployeeModel\Delete.cshtml.g.cs
-C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\EmployeeModel\Details.cshtml.g.cs
-C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\EmployeeModel\Edit.cshtml.g.cs
-C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\EmployeeModel\Index.cshtml.g.cs
+C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\Employee\Create.cshtml.g.cs
+C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\Employee\Delete.cshtml.g.cs
+C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\Employee\Details.cshtml.g.cs
+C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\Employee\Edit.cshtml.g.cs
+C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\Employee\Index.cshtml.g.cs
