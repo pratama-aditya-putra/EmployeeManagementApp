@@ -82,6 +82,10 @@ namespace EmployeeManagementApp.Controllers
             {
                 return NotFound();
             }
+            var employeeModel = await _context.Employees
+                .Include(e => e.JobPositions)
+                .FirstOrDefaultAsync(m => m.Id == jobpositionModel.EmployeeId);
+            ViewData["EmployeeFullname"] = employeeModel.FirstName + " " + employeeModel.MiddleName + " " + employeeModel.LastName;
             ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Id", jobpositionModel.EmployeeId);
             return View(jobpositionModel);
         }
