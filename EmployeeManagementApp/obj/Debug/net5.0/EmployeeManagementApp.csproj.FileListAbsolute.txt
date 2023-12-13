@@ -162,3 +162,8 @@ C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\D
 C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\Employee\Details.cshtml.g.cs
 C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\Employee\Edit.cshtml.g.cs
 C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\Employee\Index.cshtml.g.cs
+C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\Jobposition\Create.cshtml.g.cs
+C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\Jobposition\Delete.cshtml.g.cs
+C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\Jobposition\Details.cshtml.g.cs
+C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\Jobposition\Edit.cshtml.g.cs
+C:\Users\USER\Documents\GitHub\EmployeeManagementApp\EmployeeManagementApp\obj\Debug\net5.0\Razor\Views\Jobposition\Index.cshtml.g.cs

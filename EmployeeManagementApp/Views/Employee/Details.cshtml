@@ -1,5 +1,4 @@
-﻿@model EmployeeManagement.Models.EmployeeModel
-
+﻿@model EmployeeManagement.Models.EmployeeDetailsViewModel
 @{
     ViewData["Title"] = "Details";
 }
@@ -10,45 +9,105 @@
     <h4>EmployeeModel</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FirstName)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Employee.FirstName)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FirstName)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Employee.FirstName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MiddleName)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Employee.MiddleName)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MiddleName)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Employee.MiddleName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Employee.LastName)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LastName)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Employee.LastName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateOfBirth)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Employee.DateOfBirth)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateOfBirth)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Employee.DateOfBirth)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Gender)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Employee.Gender)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Gender)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Employee.Gender)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Employee.Address)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Employee.Address)
         </dd>
+
     </dl>
+    <p>Job Positions:</p>
+    <p>
+        <a asp-controller="Jobposition" asp-action="Create" asp-route-id="@Model.Employee.Id">Add New Job Position</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.JobPositions.ElementAt(0).JobName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.JobPositions.ElementAt(0).StartDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.JobPositions.ElementAt(0).EndDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.JobPositions.ElementAt(0).Salary)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.JobPositions.ElementAt(0).IsActive)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.JobPositions.ElementAt(0).Employee)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var job in Model.JobPositions)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => job.JobName)
+                    </td>
+                    <td>
+                        @(job.StartDate.ToString("yyyy-MM-dd"))
+                    </td>
+                    <td>
+                        @(job.EndDate.HasValue ? job.EndDate.Value.ToString("yyyy-MM-dd") : "")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => job.Salary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => job.IsActive)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => job.Employee.Id)
+                    </td>
+                    <td>
+                        <a asp-controller="Jobposition" asp-action="Edit" asp-route-id="@job.Id">Edit</a> |
+                        <a asp-controller="Jobposition" asp-action="Details" asp-route-id="@job.Id">Details</a> |
+                        <a asp-controller="Jobposition" asp-action="Delete" asp-route-id="@job.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Employee.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

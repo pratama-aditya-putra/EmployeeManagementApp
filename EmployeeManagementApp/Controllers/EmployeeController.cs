@@ -93,6 +93,7 @@ namespace EmployeeManagementApp.Controllers
             {
                 return NotFound();
             }
+            employeeModel.DateOfBirth = EncryptionHelper.Decrypt(employeeModel.DateOfBirth);
             return View(employeeModel);
         }
 
@@ -108,6 +109,7 @@ namespace EmployeeManagementApp.Controllers
                 return NotFound();
             }
 
+            employeeModel.DateOfBirth = EncryptionHelper.Encrypt(employeeModel.DateOfBirth);
             if (ModelState.IsValid)
             {
                 try
@@ -146,6 +148,7 @@ namespace EmployeeManagementApp.Controllers
                 return NotFound();
             }
 
+            employeeModel.DateOfBirth = EncryptionHelper.Decrypt(employeeModel.DateOfBirth);
             return View(employeeModel);
         }
 
